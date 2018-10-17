@@ -1,0 +1,190 @@
+
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <div id="landing-page">
+        <!-- including top navbar -->
+        {{> topNavbar}}
+        <!-- end of top navbar -->
+
+        <!-- including sidebars -->
+        {{> sidebars}}
+        <!-- end of sidebars -->
+    
+        <!-- Page wrapper  -->
+        <div  data-aos="zoom-in-up" class="page-wrapper">
+            <!-- Container fluid  -->
+            <div  class="container-fluid">
+
+                {{#if hasOneMessage}}
+                    <div class="alert alert-danger">
+                        {{#each messages}}
+                        <p>{{this}}</p>
+                        {{/each}}
+                    </div>
+                    {{/if}}
+                <!-- Table -->
+
+                <div  class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div  class="card">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <h4 class="card-title">Top Selling Products</h4>
+                                        <h5 class="card-subtitle">Overview of Top Selling Items</h5>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="dl">
+                                            <select class="custom-select">
+                                                <option value="0" selected>Monthly</option>
+                                                <option value="1">Daily</option>
+                                                <option value="2">Weekly</option>
+                                                <option value="3">Yearly</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- title -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{#each products}}
+                    <div class="row">
+                        {{#each this}}
+                            <div  class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" src={{this.product_image.image_path}} alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{this.product_title}}</h5>
+                                        <p class="card-text text-capitalize">{{this.product_description}}</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between">
+                                        <small class="text-muted">{{this.product_price}}</small>
+                                        <div>
+                                            <button class="btn btn-info"  data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-cart-plus fs-15"></i></button>
+                                            <button class="btn btn-success">buy</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/each}}
+
+            </div>
+            <!-- End Container fluid  -->
+            <!-- including footer -->
+            {{> footer}}
+            <!-- end of footer -->
+        </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="exampleModalLongTitle">Sign Up</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/account/signup" method="post">
+        <div class="modal-body p-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-0" style="background: #fcfbf9;">
+                        <div class="card-body pl-3 pr-3 pt-4">
+                            <div v-if="sign_up.error.length > 0" class="alert alert-danger">
+                                <p v-for="error in sign_up.error">* {[{error}]}</p>
+                            </div>
+                            <div class="form">
+                                <div class="row d-flex justify-content-between">
+                                    <div class="pb-3 col-md-6">
+                                        <label class="mb-0" for="first-name"> First Name</label>
+                                        <input type="text" name="first_name" v-model="sign_up.first_name" id="first-name" class="form-control">
+                                    </div>
+                                    <div class="pb-3 col-md-6">
+                                        <label class="mb-0" for="last-name"> Last Name</label>
+                                        <input type="text" name="last_name" v-model="sign_up.last_name"  id="last-name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="p-0 pb-3 col">
+                                    <label class="mb-0" for="email">Email</label>
+                                    <input type="email" name="email" id="email" v-model="sign_up.email"  class="form-control">
+                                </div>
+                                <div class="row d-flex justify-content-between">
+                                    <div class="pb-3 col-md-6">
+                                        <label class="mb-0" for="password1"> Password</label>
+                                        <input type="password" name="password1" v-model="sign_up.password1"  id="password1" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="mb-0" for="password2">Confirm Password</label>
+                                        <input type="password" name="password2" id="password2" v-model="sign_up.password2" class="form-control">
+                                    </div>
+                                </div>
+                                <div class=" col">
+                                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer"  style="background: #fcfbf9;">
+            <button type="submit" class="btn btn-success" @click="userSignUp">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{!-- login modal --}}
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="exampleModalLongTitle">Login</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="#" method="post">
+        <div class="modal-body p-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-0" style="background: #fcfbf9;">
+                        <div class="card-body pl-3 pr-3 pt-4">
+                        
+                            <div class="form">
+                                <div class="p-0 pb-3 col">
+                                    <label class="mb-0" for="email">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control">
+                                </div>
+                                <div class="pb-3">
+                                    <label class="mb-0" for="password1"> Password</label>
+                                    <input type="password" name="password1" id="password1" class="form-control">
+                                </div>
+                                <div class=" col">
+                                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer"  style="background: #fcfbf9;">
+            <button type="submit" class="btn btn-success">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+          
+</div>
+        <!-- End Page wrapper  -->
+    </div>
+

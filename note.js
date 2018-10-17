@@ -1,0 +1,6 @@
+/*
+google passport  strategy to see all the passport startegy
+
+once passport configuration has been set in one file say the app.js if thhe passport is required in another 
+file the configuration is already set so it can be used without setting another strategy
+*/

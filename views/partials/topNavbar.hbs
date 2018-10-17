@@ -1,0 +1,79 @@
+        <!-- Topbar header - style you can find in pages.scss -->
+        <header class="topbar w-100" data-navbarbg="skin5">
+            <nav class="mrp-fixed-postion navbar w-100 top-navbar navbar-expand-md navbar-dark ">
+                <div class="navbar-header" data-logobg="skin5">
+
+                    <span class="logo-text text-white">
+                        <p class="mb-0 ml-2 font-18">{{title}}</p>
+                    </span>
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+    
+    
+                <div class="navbar-collapse collapse d-flex justify-content-end" id="navbarSupportedContent" data-navbarbg="skin5">
+        
+                    <!-- toggle and nav items -->
+        
+        
+                    <!-- Right side toggle and nav items -->
+
+        
+                    <ul class="navbar-nav d-none d-md-flex">
+
+                        <!-- User profile and search -->
+                        <li class="nav-item" data-toggle="modal" data-target="#exampleModalCenter2">
+                            <a class="nav-link text-muted waves-effect waves-dark pro-pic" href="#">
+                                <p class="text-white">Login</p>
+                            </a>
+                        </li>
+                        <li @click="userSignUpModal" class="nav-item" data-toggle="modal" data-target="#exampleModalCenter">
+                            <a class="nav-link text-muted waves-effect waves-dark pro-pic" href="#">
+                                <p class="text-white">Sign Up</p>
+                            </a>
+                        </li>
+                        {{!-- {{#if noError}}
+                        <li class="nav-item dropdown d-none">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                            </div>
+                        </li>
+                        {{/if}} --}}
+            
+                        <!-- User profile and search -->
+            
+                    </ul>
+                </div>
+            </nav>
+             {{!-- modals --}}
+
+            <!-- Modal -->
+            <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalTitle" aria-hidden="false">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{!-- end of modals --}}
+        </header>
+
+
+
+       
+        <!-- End Topbar header -->

@@ -1,0 +1,17 @@
+.mrp-fixed-postion{
+    position: fixed !important;
+}
+.mrp-overflow-hidden{
+    overflow: hidden;
+}
+.mrp-fixed-width{
+    height: 100vh !important;
+    position: fixed !important;
+}
+input.form-control {
+    height: 3.5em;
+  }
+
+label{
+    font-weight: 700;
+}

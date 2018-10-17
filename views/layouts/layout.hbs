@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+        <!-- Custom CSS -->
+        <link href="/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="/dist/css/style.min.css" rel="stylesheet">
+        <link href="/dist/css/style.css" rel="stylesheet">
+        <link href="/dist/css/mrp-dashboard.css" rel="stylesheet">
+        <link href="/dist/css/icons/font-awesome/css/fontawesome.css" rel="stylesheet">
+        <link href="stylesheets/aos.css" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+   {{{body}}}
+
+
+        <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/assets/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/dist/js/app-style-switcher.js"></script>
+    <!--Wave Effects -->
+    <script src="/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/dist/js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="/dist/js/pages/dashboards/dashboard1.js"></script>
+
+    {{!-- vuejs implementation --}}
+    <script src="javascripts/vue1.js"></script>
+    <script src="javascripts/landing-page.js"></script>
+
+    {{!-- aos --}}
+    <script src="javascripts/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>
